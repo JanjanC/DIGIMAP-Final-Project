@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="styles/index.css" />
-        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="lib/font-awesome/css/all.css" />
-        <script type="text/javascript" src="lib/popper/popper.js"></script>
-        <script
-            type="text/javascript"
-            src="lib/jquery/jquery-3.6.0.js"
-        ></script>
-        <script
-            type="text/javascript"
-            src="lib/bootstrap/js/bootstrap.bundle.min.js"
-        ></script>
+	<head>
+		<link rel="stylesheet" href="styles/index.css" />
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="lib/font-awesome/css/all.css" />
+		<script type="text/javascript" src="lib/popper/popper.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery-3.6.0.js"></script>
+		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
 
-        <title>Sequential Circuit Binary Multiplier Simulator</title>
-    </head>
-    <body class="d-flex flex-column min-vh-100">
-        <nav class="navbar navbar-expand bg-primary">
-            <span class="navbar-brand ml-2">DIGIMAP Final Project</span>
-        </nav>
-    </body>
+		<title>DIGIMAP Final Project</title>
+	</head>
+	<body class="d-flex flex-column min-vh-100">
+		<nav class="navbar navbar-expand bg-primary">
+			<span class="navbar-brand ml-2">DIGIMAP Final Project</span>
+		</nav>
+		<p id="title">My first Pyodide app</p>
+
+		<script>
+			async function main() {
+				let pyodide = await loadPyodide();
+				await pyodide.loadPackage("opencv-python");
+
+				// pyodide.pyimport("yoloface");
+				await pyodide.runPythonAsync(`
+                    from pyodide.http import pyfetch
+                    response = await pyfetch("scripts/script.py")
+                    with open("script.py", "wb") as f:
+                        f.write(await response.bytes())
+                `);
+				pkg = pyodide.pyimport("script");
+			}
+			main();
+		</script>
+	</body>
 </html>
