@@ -1,24 +1,25 @@
 {
-    "name": "simulation-project",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node index.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/JanjanC/Simulation-Project.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/JanjanC/Simulation-Project/issues"
-    },
-    "homepage": "https://github.com/JanjanC/Simulation-Project#readme",
-    "dependencies": {
-        "express": "^4.17.2",
-        "supervisor": "^0.12.0"
-    }
+  "name": "digimap-final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JanjanC/DIGIMAP-Final-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JanjanC/DIGIMAP-Final-Project/issues"
+  },
+  "homepage": "https://github.com/JanjanC/DIGIMAP-Final-Project#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "supervisor": "^0.12.0"
+  },
+  "devDependencies": {}
 }
