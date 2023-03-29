@@ -8,7 +8,7 @@
 		<script type="text/javascript" src="{{url_for('static',filename='lib/popper/popper.js')}}"></script>
 		<script type="text/javascript" src="{{url_for('static',filename='lib/jquery/jquery-3.6.0.js')}}"></script>
 		<script type="text/javascript" src="{{url_for('static',filename='lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-		
+
 		{% include 'filepond.html' %}
 
 		<title>DIGIMAP Final Project</title>
@@ -18,6 +18,9 @@
 			<span class="navbar-brand ml-2">DIGIMAP Final Project</span>
 		</nav>
 		<p>Test</p>
+
 		<input type="file">
+
+		<img src="{{ base64img }}" />
 	</body>
 </html>
