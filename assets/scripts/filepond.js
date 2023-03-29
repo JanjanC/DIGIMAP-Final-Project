@@ -1,23 +1,17 @@
 FilePond.registerPlugin(
+    FilePondPluginImagePreview,
     FilePondPluginImageResize,
     FilePondPluginImageTransform
   );
 
 const inputElement = document.querySelector('input[type="file"]');
 const pond = FilePond.create(inputElement, {
+    storeAsFile: true,
     imageResizeTargetWidth: 1024,
-    
-    // set contain resize mode
-    imageResizeMode: 'contain',
+    imageResizeMode: 'cover',
     
     onaddfile: (err, fileItem) => {
         console.log(err, fileItem.getMetadata('resize'));
-    },
-    
-    onpreparefile: (fileItem, output) => {
-        const img = new Image();
-        img.src = URL.createObjectURL(output);
-        document.body.appendChild(img);
     }
 });
   
