@@ -45,7 +45,7 @@ class YOLOFace:
                     confidences.append((float(confidence)))
                     class_ids.append(0)
 
-        indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.5)
+        indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
         face_box = []
         face_confidence = []
 
@@ -72,8 +72,8 @@ class YOLOFace:
             img = Image.fromarray(img)
             file_object = io.BytesIO()
             img.save(file_object, 'PNG')
-            base64img = "data:image/png;base64," + b64encode(file_object.getvalue()).decode('ascii')
-            return base64img
+            img_output = "data:image/png;base64," + b64encode(file_object.getvalue()).decode('ascii')
+            return img_output
         else:
             img_output = self.img
             return img_output
