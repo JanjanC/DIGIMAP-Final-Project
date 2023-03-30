@@ -1,11 +1,11 @@
 import os
 import cv2
-from flask import Flask, Response, render_template, request
+from flask import Flask, Response, render_template, request, redirect
 from werkzeug.utils import secure_filename
 from assets.scripts.yoloface import YOLOFace
 
 UPLOAD_FOLDER = os.path.join("assets", "uploads")
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 app = Flask(__name__, template_folder=os.path.join("assets", "templates"), static_folder="assets")
 
@@ -36,7 +36,6 @@ def index():
     img_path = os.path.join(os.getcwd(), "assets", "images", "image.png")
     img, box, confidence = model.detect(img_path)
     output = model.show(img, box)
-
     return render_template("index.html", base64img=output)
 
 
@@ -58,7 +57,6 @@ def generate_frames():
 @app.route('/video')
 def video():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -82,8 +80,13 @@ def upload_file():
             return redirect("/")
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect("/")
+            img_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(img_path)
+            img, box, confidence = model.detect(img_path)
+            output = model.show(img, box)
+            if os.path.isfile(img_path):
+                os.remove(img_path)
+            return render_template("index.html", base64img=output)
 
 
 if __name__ == "__main__":
