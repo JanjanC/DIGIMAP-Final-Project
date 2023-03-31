@@ -24,22 +24,18 @@
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col align-self-start">
-						<div height=500px">
-							<input type="file">
-						</div>
+						<input type="file">
 					</div>
 					<div class="col align-self-center" align="center">
 						<input type="submit" type="button" class="btn btn-primary" value="Detect Faces">
 					</div>
 					<div class="col align-self-end">
 						<div class="col align-self-start">
-							<div height="70%" width="20%">
-								{% if base64img is defined %}
-									<img src="{{ base64img }}" width="25%"/>
-								{% else %}
-								<img src="assets/images/placeholder" width="25%"/>
-								{% endif %}
-							</div>
+							{% if base64img is defined %}
+								<img src="{{ base64img }}" width="25%"/>
+							{% else %}
+							<img src="assets/images/placeholder" width="25%"/>
+							{% endif %}
 						</div>
 					</div>
 				</div>
