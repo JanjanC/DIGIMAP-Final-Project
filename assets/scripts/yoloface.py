@@ -64,7 +64,7 @@ class YOLOFace:
             for i in range(len(face_box)):
                 box = face_box[i]
                 x, y, w, h = box[0], box[1], box[2], box[3]
-                cv2.rectangle(self.img, (x, y), (x + h, y + w), (255, 255, 255), 1)
+                cv2.rectangle(self.img, (x, y), (x + h, y + w), (255, 255, 255), 3)
 
         return img
     
