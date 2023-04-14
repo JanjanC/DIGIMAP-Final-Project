@@ -25,12 +25,12 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/submit', methods=['POST'])
+@app.route('/results', methods=['POST'])
 def upload_file():
     print(request.files)
     # check if the post request has the file part
     if 'filepond' not in request.files:
-        return render_template("index.html", error="Failed to upload file")
+        return render_template("index.html", error="Failed to Upload File")
     file = request.files['filepond']
 
     # if the user does not select a file, the browser submits an empty file without a filename.

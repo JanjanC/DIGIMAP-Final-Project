@@ -42,8 +42,21 @@
 							
 						</div> -->
 
-		<nav class="navbar navbar-dark bg-dark">
-			<a class="navbar-brand" href="#">YOLO-Face</a>
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+			<a class="navbar-brand" href="/">YOLO-Face</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav me-auto flex-nowrap">
+					<li class="nav-item">
+						<a class="nav-link" href="https://link.springer.com/article/10.1007/s00371-020-01831-7">Paper</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/vishalbpatil1/yoloface">Code</a>
+					</li>
+				</ul>
+			</div>
 		</nav>
 
 		<div class="container-fluid">
@@ -58,31 +71,33 @@
 			<hr />
 			<hr />
 			<p class="text-center w-50 mx-auto">YOLO-Face has marked each one with a bounding box. Check it out and see for yourself!</p>
-			
+
 			<div class="mt-4"></div>
-			<div class="custom-container custom-border">
+			<div class="custom-container">
 				<div class="row mt-2">
 					<div class="col-6">
-						<h5 class="text-center">Input Image</h4>
+						<h5 class="text-center">Input Image</h5>
+						<hr />
 					</div>
 					<div class="col-6">
-						<h4 class="text-center">Result</h4>
+						<h5 class="text-center">Output Image</h5>
+						<hr />
 					</div>
 				</div>
-				<div class="row mt-2">
+				<div class="row">
 					<div class="col-6 text-center">
-						<img src="{{ input_img }}"/>
+						<img src="{{ input_img }}" />
 					</div>
 					<div class="col-6 text-center">
 						<img src="{{ output_img }}" />
 					</div>
 				</div>
 				<div class="row mt-2">
-					<div class="col-6  text-center">
-						<a download="input_img.png" href="{{ input_img }}" class="btn btn-dark w-75"><i class="fa fa-download" aria-hidden="true"></i> Download Image</a>
+					<div class="col-6 text-center">
+						<a download="input_img.png" href="{{ input_img }}" class="btn btn-dark w-100"><i class="fa fa-download" aria-hidden="true"></i> Download Image</a>
 					</div>
 					<div class="col-6 text-center">
-						<a download="output_img.png" href="{{ output_img }}" class="btn btn-dark w-75"><i class="fa fa-download" aria-hidden="true"></i> Download Image </a>
+						<a download="output_img.png" href="{{ output_img }}" class="btn btn-dark w-100"><i class="fa fa-download" aria-hidden="true"></i> Download Image </a>
 					</div>
 				</div>
 			</div>

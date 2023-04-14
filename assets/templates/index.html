@@ -35,12 +35,25 @@
 							
 						</div> -->
 		
-		<nav class="navbar navbar-dark bg-dark">
-			<a class="navbar-brand" href="#">YOLO-Face</a>
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+			<a class="navbar-brand" href="/">YOLO-Face</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav me-auto flex-nowrap">
+					<li class="nav-item">
+						<a class="nav-link" href="https://link.springer.com/article/10.1007/s00371-020-01831-7">Paper</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/vishalbpatil1/yoloface">Code</a>
+					</li>
+				</ul>
+			</div>
 		</nav>
 		
 		{% if error is defined %}
-			<p class="alert alert-danger" role="alert">{{error}}</p>
+			<p class="alert alert-danger float-top" role="alert">{{error}}</p>
 		{% endif %}
 
 		<div class="container-fluid">
@@ -55,9 +68,9 @@
 			<hr>
 			<h1 class="text-center">Try It Out!</h1>
 			<hr> <hr>	
-			<p class="text-center w-50 mx-auto">Detect faces in your photos! Just upload an image and our technology will do the rest. Get started now</p>		
+			<p class="text-center w-50 mx-auto">Detect faces in your photos! Just upload an image and our technology will do the rest. Get started now!</p>		
 			
-			<form method="POST" action="/submit" enctype=multipart/form-data class="mx-auto">
+			<form method="POST" action="/results" enctype=multipart/form-data class="mx-auto">
 				<div class="w-75 mx-auto">
 					<input type="file" class="w-50 mx-auto" style="display: block">
 				</div>
