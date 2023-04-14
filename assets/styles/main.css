@@ -1,0 +1,45 @@
+@font-face {
+	font-family: Be Vietnam Pro;
+	src: url(../fonts/DMSerifDisplay-Regular.ttf);
+}
+
+h1 {
+	font-family: "Be Vietnam Pro", sans-serif;
+	font-size: 3vw;
+}
+
+html,
+body {
+	height: 100%;
+	/* background-color: #d2d2d2; */
+}
+
+img {
+	padding: 0;
+	filter: grayscale(100%);
+	display: block;
+	margin: 0 auto;
+	max-height: 100%;
+	max-width: 100%;
+	border-radius: 50px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+#form-container {
+	height: 80%;
+	width: 80%;
+	margin: auto;
+	border-style: solid;
+	border-color: #212529;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+hr {
+	background-color: #212529;
+	width: 80%;
+	/* margin: ;
+    noshade */
+}

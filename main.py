@@ -17,22 +17,6 @@ model = YOLOFace(os.path.join(os.getcwd(), "assets", "model", "yolo_face_tiny.cf
 app.secret_key = "secretkey"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# openCvVidCapIds = []
-
-# for i in range(100):
-#     try:
-#         cap = cv2.VideoCapture(i)
-#         if cap is not None and cap.isOpened():
-#             openCvVidCapIds.append(i)
-#         # end if
-#     except:
-#         pass
-#     # end try
-# # end for
-
-# print(openCvVidCapIds)
-
-
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -89,4 +73,4 @@ def upload_file():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
