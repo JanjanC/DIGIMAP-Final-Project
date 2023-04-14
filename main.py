@@ -11,7 +11,6 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 app = Flask(__name__, template_folder=os.path.join("assets", "templates"), static_folder="assets")
 
-camera = cv2.VideoCapture(1)
 model = YOLOFace(os.path.join(os.getcwd(), "assets", "model", "yolo_face_tiny.cfg"), os.path.join(os.getcwd(), "assets", "model", "yolo_face_tiny.weights"))
 
 app.secret_key = "secretkey"
@@ -20,26 +19,6 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route("/")
 def index():
     return render_template("index.html")
-
-
-def generate_frames():
-    while True:
-        success, frame = camera.read()  # read the camera frame
-
-        if not success:
-            break
-        else:
-            _, box, _ = model.detect(frame_list=frame, frame_status=True)
-            frame = model.show(frame, box, frame_status=True)
-            ret, buffer = cv2.imencode('.jpg', frame)
-            frame = buffer.tobytes()
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
-
-
-@app.route('/video')
-def video():
-    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -53,23 +32,29 @@ def upload_file():
     if 'filepond' not in request.files:
         return render_template("index.html", error="Failed to upload file")
     file = request.files['filepond']
-    # If the user does not select a file, the browser submits an empty file without a filename.
+
+    # if the user does not select a file, the browser submits an empty file without a filename.
     print(type(file.stream))
     if file.filename == '':
         print('No selected file')
-        return render_template("index.html", error="No valid file uploaded")
+        return render_template("index.html", error="No Valid File Uploaded")
     if not allowed_file(file.filename):
         print('Invalid file type')
-        return render_template("index.html", error="Invalid file type")
+        return render_template("index.html", error="Invalid File Type")
+    
     if file:
+        print('file', file)
         filename = secure_filename(file.filename)
         img_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(img_path)
         img, box, confidence = model.detect(img_path)
-        output = model.show(img, box)
+        print(img)
+        input_img = model.convert_img(img)
+        output = model.show_box(img, box)
+        output_img = model.convert_img(output)
         if os.path.isfile(img_path):
             os.remove(img_path)
-        return render_template("index.html", base64img=output)
+        return render_template("result.html", input_img=input_img, output_img=output_img)
 
 
 if __name__ == "__main__":

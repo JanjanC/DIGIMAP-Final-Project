@@ -3,7 +3,8 @@
 	src: url(../fonts/DMSerifDisplay-Regular.ttf);
 }
 
-h1 {
+h1,
+a {
 	font-family: "Be Vietnam Pro", sans-serif;
 	font-size: 3vw;
 }
@@ -14,32 +15,39 @@ body {
 	/* background-color: #d2d2d2; */
 }
 
-img {
-	padding: 0;
-	filter: grayscale(100%);
-	display: block;
-	margin: 0 auto;
-	max-height: 100%;
-	max-width: 100%;
-	border-radius: 50px;
-	background-position: center center;
-	background-repeat: no-repeat;
-}
-
-#form-container {
-	height: 80%;
-	width: 80%;
-	margin: auto;
-	border-style: solid;
-	border-color: #212529;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 hr {
 	background-color: #212529;
-	width: 80%;
+	width: 75%;
+	/* height: 10px; */
 	/* margin: ;
     noshade */
+}
+
+img {
+	padding: 0;
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.custom-container {
+	height: 75%;
+	width: 75%;
+	margin: auto;
+}
+
+.custom-border {
+	border-style: solid;
+	border-color: #212529;
+	border-width: 1px;
+}
+
+.btn-download {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.filepond--root .filepond--image-preview {
+	background: white;
 }

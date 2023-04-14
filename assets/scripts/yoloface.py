@@ -56,10 +56,9 @@ class YOLOFace:
 
         return img, face_box, face_confidence
 
-    def show(self, img, face_box, frame_status=False):
+    def show_box(self, img, face_box):
         self.img = img
         self.face_box = face_box
-        self.frame_status = frame_status
 
         if len(face_box) > 0:
             for i in range(len(face_box)):
@@ -67,13 +66,13 @@ class YOLOFace:
                 x, y, w, h = box[0], box[1], box[2], box[3]
                 cv2.rectangle(self.img, (x, y), (x + h, y + w), (255, 255, 255), 1)
 
-        if self.frame_status == False:
-            img = cv2.cvtColor(self.img, cv2.COLOR_BGR2RGB)  # Converting BGR to RGB
-            img = Image.fromarray(img)
-            file_object = io.BytesIO()
-            img.save(file_object, 'PNG')
-            img_output = "data:image/png;base64," + b64encode(file_object.getvalue()).decode('ascii')
-            return img_output
-        else:
-            img_output = self.img
-            return img_output
+        return img
+    
+    def convert_img(self, img):
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # Converting BGR to RGB
+        img = Image.fromarray(img)
+        file_object = io.BytesIO()
+        img.save(file_object, 'PNG')
+        img = "data:image/png;base64," + b64encode(file_object.getvalue()).decode('ascii')
+        return img
+

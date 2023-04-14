@@ -9,12 +9,19 @@
 		<script type="text/javascript" src="{{url_for('static',filename='lib/jquery/jquery-3.6.0.js')}}"></script>
 		<script type="text/javascript" src="{{url_for('static',filename='lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
-		
 		{% include 'filepond.html' %}
 
 		<title>DIGIMAP Final Project</title>
 	</head>
 	<body class="d-flex flex-column min-vh-100">
+		<!-- <nav class="navbar navbar-expand bg-primary">
+			<span class="navbar-brand ml-2">DIGIMAP Final Project</span>
+		</nav> -->
+
+		<!-- {% if error is defined %}
+			<p class="alert alert-danger" role="alert">{{error}}</p>
+		{% endif %}
+		<form method="POST" action="/submit" enctype=multipart/form-data> -->
 
 		<!-- {% if error is defined %}
 			<p class="alert alert-danger" role="alert">{{error}}</p>
@@ -23,7 +30,7 @@
 
 		<!-- {% if base64img is defined %}
 									<img src="{{ base64img }}" width="25%"/>
-									¯
+									<a download="face.jpg" href="{{ base64img }}">Download Image</a>
 								{% else %}
 								<img src="/assets/images/placeholder.png" width="25%"/>
 								{% endif %} -->
@@ -34,37 +41,51 @@
 						<div class="col align-self-center" align="center">
 							
 						</div> -->
-		
+
 		<nav class="navbar navbar-dark bg-dark">
 			<a class="navbar-brand" href="#">YOLO-Face</a>
 		</nav>
-		
-		{% if error is defined %}
-			<p class="alert alert-danger" role="alert">{{error}}</p>
-		{% endif %}
 
 		<div class="container-fluid">
-
-			<div class="mt-4"></div>
-			<hr>
-			<h1 class="text-center">What is YOLO-Face?</h1>
+			<!-- <hr>
+			<h1 class="text-center">YOLO-Face Detection System</h1>
 			<hr> <hr>
 			<p class="text-center w-50 mx-auto">YOLO-Face is a facial detection model based on YOLOv3 algorithm. It is trained on a dataset of faces and uses a deep neural network to identify faces accurately and quickly. YOLO-Face is widely used in real-time applications such as video surveillance and face recognition systems due to its high performance and reliability.</p>
+			 -->
+
+			<hr />
+			<h1 class="text-center">Results</h1>
+			<hr />
+			<hr />
+			<p class="text-center w-50 mx-auto">YOLO-Face has marked each one with a bounding box. Check it out and see for yourself!</p>
 			
 			<div class="mt-4"></div>
-			<hr>
-			<h1 class="text-center">Try It Out!</h1>
-			<hr> <hr>	
-			<p class="text-center w-50 mx-auto">Detect faces in your photos! Just upload an image and our technology will do the rest. Get started now</p>		
-			
-			<form method="POST" action="/submit" enctype=multipart/form-data class="mx-auto">
-				<div class="w-75 mx-auto">
-					<input type="file" class="w-50 mx-auto" style="display: block">
+			<div class="custom-container custom-border">
+				<div class="row mt-2">
+					<div class="col-6">
+						<h5 class="text-center">Input Image</h4>
+					</div>
+					<div class="col-6">
+						<h4 class="text-center">Result</h4>
+					</div>
 				</div>
-				<div class="w-50 mx-auto">
-					<input type="submit" type="button" class="btn btn-block btn-dark text-center" value="Detect!">
+				<div class="row mt-2">
+					<div class="col-6 text-center">
+						<img src="{{ input_img }}"/>
+					</div>
+					<div class="col-6 text-center">
+						<img src="{{ output_img }}" />
+					</div>
 				</div>
-			</form>
+				<div class="row mt-2">
+					<div class="col-6  text-center">
+						<a download="input_img.png" href="{{ input_img }}" class="btn btn-dark w-75"><i class="fa fa-download" aria-hidden="true"></i> Download Image</a>
+					</div>
+					<div class="col-6 text-center">
+						<a download="output_img.png" href="{{ output_img }}" class="btn btn-dark w-75"><i class="fa fa-download" aria-hidden="true"></i> Download Image </a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
