@@ -1,12 +1,23 @@
 @font-face {
-	font-family: Be Vietnam Pro;
-	src: url(../fonts/DMSerifDisplay-Regular.ttf);
+	font-family: Abril Fatface;
+	src: url(../fonts/AbrilFatface-Regular.ttf);
+}
+
+@font-face {
+	font-family: Poppins;
+	src: url(../fonts/Poppins-Regular.ttf);
 }
 
 h1,
-a {
-	font-family: "Be Vietnam Pro", sans-serif;
+h5 {
+	font-family: "Abril Fatface", cursive;
 	font-size: 3vw;
+}
+
+a,
+p,
+h4 {
+	font-family: "Poppins", sans-serif;
 }
 
 html,
