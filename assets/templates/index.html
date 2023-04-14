@@ -33,8 +33,9 @@
 						<div class="col align-self-start">
 							{% if base64img is defined %}
 								<img src="{{ base64img }}" width="25%"/>
+								<a download="face.jpg" href="{{ base64img }}">Download Image</a>
 							{% else %}
-							<img src="assets/images/placeholder" width="25%"/>
+							<img src="/assets/images/placeholder.png" width="25%"/>
 							{% endif %}
 						</div>
 					</div>

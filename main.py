@@ -35,7 +35,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route("/")
 def index():
-    return render_template("index.html", base64img="assets/images/placeholder.png")
+    return render_template("index.html")
 
 
 def generate_frames():
