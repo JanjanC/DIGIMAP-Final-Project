@@ -9,10 +9,17 @@
 		<script type="text/javascript" src="{{url_for('static',filename='lib/jquery/jquery-3.6.0.js')}}"></script>
 		<script type="text/javascript" src="{{url_for('static',filename='lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
-		
-		{% include 'filepond.html' %}
+		<link rel="stylesheet" href="{{url_for('static',filename='lib/filepond/filepond.css')}}" />
+		<link rel="stylesheet" href="{{url_for('static',filename='lib/filepond/filepond-plugin-image-preview.css')}}" />
 
-		<title>DIGIMAP Final Project</title>
+		<script defer src="{{url_for('static',filename='lib/filepond/filepond-plugin-image-preview.js')}}"></script>
+		<script defer src="{{url_for('static',filename='lib/filepond/filepond-plugin-file-validate-type.js')}}"></script>
+		<script defer src="{{url_for('static',filename='lib/filepond/filepond.js')}}"></script>
+		<script defer src="{{url_for('static',filename='lib/filepond/filepond-plugin-image-preview.js')}}"></script>
+		
+		<script defer src="{{url_for('static',filename='scripts/filepond.js')}}" type="application/javascript"></script>
+
+		<title>YOLO-Face</title>
 	</head>
 	<body class="d-flex flex-column min-vh-100">
 		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
