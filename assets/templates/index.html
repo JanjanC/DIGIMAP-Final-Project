@@ -19,9 +19,10 @@
 
 		<script defer src="{{url_for('static',filename='scripts/init-filepond.js')}}" type="application/javascript"></script>
 
-		<title>YOLO-Face</title>
+		<title>YOLO-Face | Results</title>
 	</head>
 	<body class="d-flex flex-column min-vh-100">
+		<!-- Navbar -->
 		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 			<a class="navbar-brand" href="/">YOLO-Face</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,11 +40,13 @@
 			</div>
 		</nav>
 
+		<!-- Error Message -->
 		{% if error is defined %}
 		<p class="alert alert-danger float-top" role="alert">{{error}}</p>
 		{% endif %}
 
 		<div class="container-fluid">
+			<!-- YOLO-Face Introduction -->
 			<div class="mt-4"></div>
 			<hr />
 			<h1 class="text-center">What is YOLO-Face?</h1>
@@ -51,6 +54,7 @@
 			<hr />
 			<p class="text-center w-50 mx-auto">YOLO-Face is a facial detection model based on YOLOv3 algorithm. It is trained on a dataset of faces and uses a deep neural network to identify faces accurately and quickly. YOLO-Face is widely used in real-time applications such as video surveillance and face recognition systems due to its high performance and reliability.</p>
 
+			<!-- Try It Out! Introduction -->
 			<div class="mt-4"></div>
 			<hr />
 			<h1 class="text-center">Try It Out!</h1>
@@ -58,6 +62,7 @@
 			<hr />
 			<p class="text-center w-50 mx-auto">Detect faces in your photos! Just upload an image and YOLO-Face will do the rest. Get started now!</p>
 
+			<!-- Upload Form -->
 			<form method="POST" action="/results" enctype="multipart/form-data" class="mx-auto">
 				<div class="w-75 mx-auto">
 					<input type="file" class="w-50 mx-auto" style="display: block" />

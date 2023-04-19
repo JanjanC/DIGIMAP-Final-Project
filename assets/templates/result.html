@@ -19,9 +19,10 @@
 
 		<script defer src="{{url_for('static',filename='scripts/init-filepond.js')}}" type="application/javascript"></script>
 
-		<title>YOLO-Face</title>
+		<title>YOLO-Face | Get Started</title>
 	</head>
 	<body class="d-flex flex-column min-vh-100">
+		<!-- Navbar -->
 		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 			<a class="navbar-brand" href="/">YOLO-Face</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,16 +41,19 @@
 		</nav>
 
 		<div class="container-fluid">
+			<!-- Result Introduction -->
 			<hr />
 			<h1 class="text-center">Results</h1>
 			<hr />
 			<hr />
 			<p class="text-center w-50 mx-auto">YOLO-Face has marked each detected face with a bounding box. Check it out and see for yourself!</p>
 
+			<!-- Retry Button -->
 			<div class="text-center">
 				<a href="/" class="btn btn-dark w-25">Upload a New Image!</a>
 			</div>
 
+			<!-- Result Image -->
 			<div class="mt-4"></div>
 			<div class="custom-container">
 				<div class="row mt-2">
