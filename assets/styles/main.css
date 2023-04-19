@@ -15,23 +15,18 @@ h5 {
 }
 
 a,
-p,
-h4 {
+p {
 	font-family: "Poppins", sans-serif;
 }
 
 html,
 body {
 	height: 100%;
-	/* background-color: #d2d2d2; */
 }
 
 hr {
 	background-color: #212529;
 	width: 75%;
-	/* height: 10px; */
-	/* margin: ;
-    noshade */
 }
 
 img {
@@ -45,18 +40,6 @@ img {
 	height: 75%;
 	width: 75%;
 	margin: auto;
-}
-
-.custom-border {
-	border-style: solid;
-	border-color: #212529;
-	border-width: 1px;
-}
-
-.btn-download {
-	position: absolute;
-	top: 0;
-	right: 0;
 }
 
 .filepond--root .filepond--image-preview {
