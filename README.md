@@ -8,7 +8,7 @@ YOLO-Face is a facial detection model based on YOLOv3 algorithm. It is trained o
 2. Launch the web application by running `python main.py`
 3. The web application may also be accessed through http://amoscacha.pythonanywhere.com/
 
-## Screenshots of the Web Application
+## Preview of the Web Application
 
 ### Home Page
 
