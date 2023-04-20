@@ -1,5 +1,4 @@
 import os
-import cv2
 from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from assets.scripts.yoloface import YOLOFace
@@ -16,6 +15,7 @@ model = YOLOFace(os.path.join(os.getcwd(), "assets", "model", "yolo_face_tiny.cf
 
 app.secret_key = "secretkey"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 7
 
 @app.route("/")
 def index():
@@ -39,7 +39,7 @@ def upload_file():
 
     # if the user does not select a file, the browser submits an empty file without a filename.
     if file.filename == '':
-        return render_template("index.html", error="No Valid File Uploaded.")
+        return render_template("index.html", error="Invalid File Uploaded.")
 
     # invalid file extension
     if not allowed_file(file.filename):
