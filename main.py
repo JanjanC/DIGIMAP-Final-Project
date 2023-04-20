@@ -31,16 +31,16 @@ def allowed_file(filename):
 def upload_file():
     # check if the post request has the file part
     if 'filepond' not in request.files:
-        return render_template("index.html", error="Failed to Upload File")
+        return render_template("index.html", error="Failed to Upload File.")
     file = request.files['filepond']
 
     # if the user does not select a file, the browser submits an empty file without a filename.
     if file.filename == '':
-        return render_template("index.html", error="No Valid File Uploaded")
+        return render_template("index.html", error="No Valid File Uploaded.")
     
     # invalid file extension
     if not allowed_file(file.filename):
-        return render_template("index.html", error="Invalid File Type")
+        return render_template("index.html", error="Invalid File Type.")
     
     # a valid file was uploaded
     if file:
@@ -54,8 +54,11 @@ def upload_file():
         output_img = model.convert_img(output) # convert output image to base64
         if os.path.isfile(img_path):
             os.remove(img_path)
-        return render_template("result.html", input_img=input_img, output_img=output_img)
-
+        
+        if len(box) > 0: #faces detected
+            return render_template("result.html", input_img=input_img, output_img=output_img)
+        else: # no faces detected
+            return render_template("result.html", input_img=input_img, output_img=output_img, error="No Faces Detected. Please Upload a New Image.")
 
 if __name__ == "__main__":
     app.run()

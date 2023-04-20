@@ -39,6 +39,11 @@
 			</div>
 		</nav>
 
+		<!-- Error Message -->
+		{% if error is defined %}
+		<p class="alert alert-danger float-top" role="alert">{{error}}</p>
+		{% endif %}
+
 		<div class="container-fluid">
 			<!-- Result Introduction -->
 			<hr />
