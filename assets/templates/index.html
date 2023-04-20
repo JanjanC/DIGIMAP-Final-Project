@@ -12,12 +12,6 @@
 		<link rel="stylesheet" href="{{url_for('static',filename='lib/filepond/filepond.css')}}" />
 		<link rel="stylesheet" href="{{url_for('static',filename='lib/filepond/filepond-plugin-image-preview.css')}}" />
 
-		<script defer src="{{url_for('static',filename='lib/filepond/filepond-plugin-image-preview.js')}}"></script>
-		<script defer src="{{url_for('static',filename='lib/filepond/filepond-plugin-file-validate-type.js')}}"></script>
-		<script defer src="{{url_for('static',filename='lib/filepond/filepond.js')}}"></script>
-
-		<script defer src="{{url_for('static',filename='scripts/init-filepond.js')}}" type="application/javascript"></script>
-
 		<title>YOLO-Face | Get Started!</title>
 	</head>
 	<body class="d-flex flex-column min-vh-100">
@@ -70,6 +64,12 @@
 					<input type="submit" type="button" class="btn btn-block btn-dark text-center" value="Detect!" />
 				</div>
 			</form>
+
+			<script src="{{url_for('static',filename='lib/filepond/filepond-plugin-image-preview.js')}}"></script>
+    		<script src="{{url_for('static',filename='lib/filepond/filepond-plugin-file-validate-type.js')}}"></script>
+    		<script src="{{url_for('static',filename='lib/filepond/filepond.js')}}"></script>
+
+    		<script src="{{url_for('static',filename='scripts/init-filepond.js')}}" type="application/javascript"></script>
 		</div>
 	</body>
 </html>
